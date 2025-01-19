@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "windfarm-forecast"
+version = "0.1.0"
+description = ""
+authors = ["Eric Henri Fischer <eric_henri.fischer@lidl.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.3"
+scikit-learn = "<1.6"
+lightgbm = "^4.5.0"
+streamlit = "^1.41.1"
+ipykernel = "^6.29.5"
+matplotlib = "^3.10.0"
+pyyaml = "^6.0.2"
+statsmodels = "^0.14.4"
+seaborn = "^0.13.2"
+plotly = "^5.24.1"
+nbformat = "^5.10.4"
+pytest = "^8.3.4"
+xgboost = "^2.1.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

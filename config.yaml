@@ -1,0 +1,4 @@
+preprocessing:
+  impute_power_when_turbine_stopped:
+    enabled: true
+    method: "most_similar_turbine"
