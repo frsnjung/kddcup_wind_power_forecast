@@ -9,7 +9,10 @@ data/
 __pycache__/
 *.pyc
 
-# Additional common Python ignores you might want
+# Additional ignores
 .env
 .coverage
 .python-version
+
+# Private files
+private/
