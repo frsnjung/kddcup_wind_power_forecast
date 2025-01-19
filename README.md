@@ -14,14 +14,14 @@ I started working on the project on the 30th of December 2024 and it is still WI
 What is done:
 - Finished the exploratory data analysis, data cleaning and preprocessing, and feature engineering
 - implemented imputation method of missing values in certain situations using the most similar turbines inclduing unit tests
-- Implemented the first models (naive regression: lin reg); evaluated on whole valiation time horizon
+- Implemented the first models (naive regression: lin reg, XGBoost); evaluated on whole valiation time horizon
 
 What is TBD:
 - implement a windowed approach of the models (lin reg, xgboost, lightgbm) and choose forecasting horizon
 - implement and setup CI pipeline in github actions that runs at least the tests at each commit
 - implement approaches that respect the time series nature of the problem: multi output/multi step approach, recursive multi-step, true sequence-to-sequence models (GRU, LSTM, Transformer)
 - refactor the notebooks to a proper pipeline of .py files
-- maybe implement some sort of minimal front end in streamlit to visualize and report the results in one place
+- maybe implement some sort of minimal front end in streamlit for example to visualize and report the results in one place
 
 
 ## Data
