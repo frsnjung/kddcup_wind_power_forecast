@@ -16,10 +16,6 @@ What is done:
 - implemented imputation method of missing values in certain situations using the most similar turbines inclduing unit tests
 - Implemented the first models (naive regression: lin reg); evaluated on whole valiation time horizon
 
-What is in progress:
-- add experiment tracking with mlflow
-- add naive approach of xgboost and lightgbm
-
 What is TBD:
 - implement a windowed approach of the models (lin reg, xgboost, lightgbm) and choose forecasting horizon
 - implement and setup CI pipeline in github actions that runs at least the tests at each commit
