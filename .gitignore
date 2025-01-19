@@ -1,0 +1,15 @@
+# Data folder
+data/
+
+# Virtual environment
+.venv/
+
+# Python cache files
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# Additional common Python ignores you might want
+.env
+.coverage
+.python-version
