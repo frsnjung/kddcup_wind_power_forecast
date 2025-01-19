@@ -1,6 +1,9 @@
 # Data folder
 data/
 
+# MLflow tracking
+mlruns/
+
 # Virtual environment
 .venv/
 
