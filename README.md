@@ -79,6 +79,11 @@ poetry shell
 ```
 poetry run pytest
 ```
-6. To run the whole end-to-end pipeline, run the following command:
+6. To view the logged experiments in mlflow, run:
+```
+mlflow ui --backend-store-uri "/path/to/your/project/windfarm_forecast/mlruns"
+```
+Then head to http://localhost:5000/ in your browser.
+7. To run the whole end-to-end pipeline, run the following command:
 TBD (I have not converted the notebooks to a proper pipeline of .py files yet)
 
