@@ -19,6 +19,7 @@ What is done:
 What is TBD:
 - implement a windowed approach of the models (lin reg, xgboost, lightgbm) and choose forecasting horizon
 - implement and setup CI pipeline in github actions that runs at least the tests at each commit
+- add time series features to the models
 - implement approaches that respect the time series nature of the problem: multi output/multi step approach, recursive multi-step, true sequence-to-sequence models (GRU, LSTM, Transformer)
 - refactor the notebooks to a proper pipeline of .py files
 - maybe implement some sort of minimal front end in streamlit for example to visualize and report the results in one place
