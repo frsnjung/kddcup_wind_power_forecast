@@ -1,8 +1,8 @@
 ## Introduction
 
-The goal of this project is to forecast the power output of a wind farm using the SDWPF dataset of the KDD Cup 2022 from Baidu. 
+The goal of this project is to forecast the power output of a wind farm using the SDWPF dataset of the KDD Cup 2022 from Baidu.
 
-The goal is to forecast the power output of the whole wind farm at each of the 10 minutes time step using the weather data such as wind speed and temperature and turbine data such as how many turbines are operating. Thus, my goal differs from the original goal of the KDD Cup 2022 where they forecasted the next two days on each individual turbine utilizing the turbine location data in addition but ignoring the future weather data. I chose a different approach because in a realistic scenario, we have quite accurate weather forecast data for the next 2 days and it would not make sense to ignore it. 
+The goal is to forecast the power output of the whole wind farm at each of the 10 minutes time step using the weather data such as wind speed and temperature and turbine data such as how many turbines are operating. Thus, my goal differs from the original goal of the KDD Cup 2022 where they forecasted the next two days on each individual turbine utilizing the turbine location data in addition but ignoring the future weather data. I chose a different approach because in a realistic scenario, we have quite accurate weather forecast data for the next 2 days and it would not make sense to ignore it.
 
 On the wind farm level, I found no signification autocorrelation of the power output over time which made me also test models that ignore the time series nature of the problem and only use the weather data and the number of active turbines. The use of the number of active turbines makes it possible to forecast the potential power output of the wind farm, given some weather forecast. If a wind turbine will not be operational in a productive scenario due to external factors such as grid stability actions or maintanace, one can account for that by adjusting the number of active turbines accordingly.
 
@@ -71,17 +71,20 @@ To activate the virtual env, run:
 ```
 poetry shell
 ```
-4. For exploratory use, run the notebooks in the order they are numbered
-5. To run the tests:
+4. Install pre-commit hooks
+```
+poetry run pre-commit install
+```
+5. For exploratory use, run the notebooks in the order they are numbered
+6. To run the tests:
 ```
 poetry run pytest
 ```
-6. To view the logged experiments in mlflow, run:
+7. To view the logged experiments in mlflow, run:
 ```
 mlflow ui --backend-store-uri "/path/to/your/project/windfarm_forecast/mlruns"
 ```
 Then head to http://localhost:5000/ in your browser.
 
-7. To run the whole end-to-end pipeline, run the following command:
+8. To run the whole end-to-end pipeline, run the following command:
 TBD (I have not converted the notebooks to a proper pipeline of .py files yet)
-

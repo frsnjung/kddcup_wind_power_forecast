@@ -43,6 +43,10 @@ select = [
     "I",  # isort
 ]
 
+# Ignore line-length violations in Jupyter notebooks
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = ["E501"]
+
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
