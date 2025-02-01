@@ -12,13 +12,13 @@ I will implement and compare several approaches to model this timeseries forecas
 I started working on the project on the 30th of December 2024 and it is still WIP:
 
 What is done:
-- Finished the exploratory data analysis, data cleaning and preprocessing, and feature engineering
-- implemented imputation method of missing values in certain situations using the most similar turbines inclduing unit tests
-- Implemented the first models (naive regression: lin reg, XGBoost); evaluated on whole valiation time horizon
+- finished the exploratory data analysis, data cleaning and preprocessing, and feature engineering
+- implemented imputation method of missing values in certain situations using the most similar turbines + added unit tests
+- implemented the first models (naive regression: lin reg, XGBoost); evaluated on whole valiation time horizon
+- implemented and setup CI pipeline in github actions that runs unit tests and linting+formatting checks at each commit
 
 What is TBD:
 - implement a windowed approach of the models (lin reg, xgboost, lightgbm) and choose forecasting horizon
-- implement and setup CI pipeline in github actions that runs at least the tests at each commit
 - add time series features to the models
 - implement approaches that respect the time series nature of the problem: multi output/multi step approach, recursive multi-step, true sequence-to-sequence models (GRU, LSTM, Transformer)
 - refactor the notebooks to a proper pipeline of .py files
