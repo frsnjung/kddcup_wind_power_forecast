@@ -16,13 +16,14 @@ What is done:
 - implemented imputation method of missing values in certain situations using the most similar turbines + added unit tests
 - implemented the first models (naive regression: lin reg, XGBoost); evaluated on whole valiation time horizon
 - implemented and setup CI pipeline in github actions that runs unit tests and linting+formatting checks at each commit
+- implemented minimal front end in streamlit with unit tests
 
 What is TBD:
 - implement a windowed approach of the models (lin reg, xgboost, lightgbm) and choose forecasting horizon
 - add time series features to the models
 - implement approaches that respect the time series nature of the problem: multi output/multi step approach, recursive multi-step, true sequence-to-sequence models (GRU, LSTM, Transformer)
 - refactor the notebooks to a proper pipeline of .py files
-- maybe implement some sort of minimal front end in streamlit for example to visualize and report the results in one place
+- extend the streamlit app with more features such as browsing the tabular data or adding more plots
 
 
 ## Data
