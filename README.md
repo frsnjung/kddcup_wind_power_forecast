@@ -87,5 +87,12 @@ mlflow ui --backend-store-uri "/path/to/your/project/windfarm_forecast/mlruns"
 Then head to http://localhost:5000/ in your browser. It should look like this:
 <img src="./assets/mlflow_ui.png" alt="Alt text" width="1000"/>
 
+8. To run the streamlit app, execute the following command while being in the root directory of the project:
+```
+poetry run streamlit run windfarm_forecast/frontend/app.py
+```
+It should look like this:
+<img src="./assets/frontend.png" alt="Alt text" width="1000"/>
+
 8. To run the whole end-to-end pipeline, run the following command:
 TBD (I have not converted the notebooks to a proper pipeline of .py files yet)
