@@ -2,9 +2,9 @@
 
 The goal of this project is to forecast the power output of a wind farm using the SDWPF dataset of the KDD Cup 2022 from Baidu.
 
-The goal is to forecast the power output of the whole wind farm at each of the 10 minutes time step using the weather data such as wind speed and temperature and turbine data such as how many turbines are operating. Thus, my goal differs from the original goal of the KDD Cup 2022 where they forecasted the next two days on each individual turbine utilizing the turbine location data in addition but ignoring the future weather data. I chose a different approach because in a realistic scenario, we have quite accurate weather forecast data for the next 2 days and it would not make sense to ignore it.
+The goal is to forecast the power output of the whole wind farm at each of the 10 minutes time steps using the weather data such as wind speed and temperature and turbine data such as how many turbines are operating. Thus, my goal differs from the original goal of the KDD Cup 2022 where they forecasted the next two days on each individual turbine utilizing the turbine location data in addition but ignoring future weather data. I chose a different approach because in a realistic scenario, we have quite accurate weather forecast data for the next 2 days and it would not make sense to ignore it.
 
-On the wind farm level, I found no signification autocorrelation of the power output over time which made me also test models that ignore the time series nature of the problem and only use the weather data and the number of active turbines. The use of the number of active turbines makes it possible to forecast the potential power output of the wind farm, given some weather forecast. If a wind turbine will not be operational in a productive scenario due to external factors such as grid stability actions or maintanace, one can account for that by adjusting the number of active turbines accordingly.
+On the wind farm level, I found only limited autocorrelation of the power output after a lag of 6 hours which made me also test models that ignore the time series nature of the problem and only use the weather data and the number of active turbines. The use of the number of active turbines makes it possible to forecast the potential power output of the wind farm, given some weather forecast. If a wind turbine will not be operational in a productive scenario due to external factors such as grid stability actions or maintanace, one can account for that by adjusting the number of active turbines accordingly.
 
 I will implement and compare several approaches to model this timeseries forecasting problem (e.g., Lin Reg, XGBoost/LightGBM, window)
 
@@ -16,13 +16,14 @@ What is done:
 - implemented imputation method of missing values in certain situations using the most similar turbines + added unit tests
 - implemented the first models (naive regression: lin reg, XGBoost); evaluated on whole valiation time horizon
 - implemented and setup CI pipeline in github actions that runs unit tests and linting+formatting checks at each commit
+- implemented minimal front end in streamlit with unit tests
 
 What is TBD:
 - implement a windowed approach of the models (lin reg, xgboost, lightgbm) and choose forecasting horizon
 - add time series features to the models
 - implement approaches that respect the time series nature of the problem: multi output/multi step approach, recursive multi-step, true sequence-to-sequence models (GRU, LSTM, Transformer)
 - refactor the notebooks to a proper pipeline of .py files
-- maybe implement some sort of minimal front end in streamlit for example to visualize and report the results in one place
+- extend the streamlit app with more features such as browsing the tabular data or adding more plots
 
 
 ## Data
@@ -44,6 +45,11 @@ Columns
 - Pab3: Blade angle 3 (degrees).
 - Prtv: Reactive power (kW).
 - Patv: Active power (kW) --> Target variable.
+
+## Limitations
+The following limitations need to be considered when interpreting the results, especially when making conclusions about the performance in a real-world scenario:
+- I use actual weather data for forecasting instead of forecasted weather data. In a real-world scenario, we would only have access to forecasted weather data.
+- I use the number of active turbines as a feature to be able to forecast the potential power output of the wind farm as well as to account for estimations about the number of operational turbines. In a real-world scenario, we would not always know for sure how many turbines will actually be operational (e.g., maintenance, grid stability actions, etc.)
 
 ## How to setup and run the project
 
@@ -86,6 +92,13 @@ mlflow ui --backend-store-uri "/path/to/your/project/windfarm_forecast/mlruns"
 ```
 Then head to http://localhost:5000/ in your browser. It should look like this:
 <img src="./assets/mlflow_ui.png" alt="Alt text" width="1000"/>
+
+8. To run the streamlit app, execute the following command while being in the root directory of the project:
+```
+poetry run streamlit run windfarm_forecast/frontend/app.py
+```
+It should look like this:
+<img src="./assets/frontend.png" alt="Alt text" width="1000"/>
 
 8. To run the whole end-to-end pipeline, run the following command:
 TBD (I have not converted the notebooks to a proper pipeline of .py files yet)
