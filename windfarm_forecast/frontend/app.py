@@ -33,7 +33,7 @@ def create_plot(data, model_col, title="Wind Farm Power Output Predictions"):
         x="Time",
         y=["Actual", "Predicted"],
         title=title,
-        labels={"value": "Power Output (kW)", "variable": "Type"},
+        labels={"value": "Power Output (MW)", "variable": "Type"},
     )
 
     # Update layout
@@ -42,7 +42,7 @@ def create_plot(data, model_col, title="Wind Farm Power Output Predictions"):
         xaxis_title=dict(
             text="Time of Measurement (10-minute intervals)", font=dict(size=14, color="black", family="Arial Bold")
         ),
-        yaxis_title=dict(text="Power Output (kW)", font=dict(size=14, color="black", family="Arial Bold")),
+        yaxis_title=dict(text="Power Output (MW)", font=dict(size=14, color="black", family="Arial Bold")),
         legend=dict(title="Type"),
         plot_bgcolor="#f6f6f6",
         paper_bgcolor="#f6f6f6",
