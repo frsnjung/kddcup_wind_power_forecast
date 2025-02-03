@@ -146,9 +146,9 @@ def main():
             # Display metrics in columns
             col1, col2 = st.columns(2)
             with col1:
-                st.metric("Mean Absolute Error", f"{mae:.2f} kW")
+                st.metric("Mean Absolute Error", f"{mae:.2f} MW")
             with col2:
-                st.metric("Root Mean Square Error", f"{rmse:.2f} kW")
+                st.metric("Root Mean Square Error", f"{rmse:.2f} MW")
 
     except Exception as e:
         st.error(f"Error loading data: {str(e)}")
