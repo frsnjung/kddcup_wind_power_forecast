@@ -4,9 +4,9 @@ The goal of this project is to forecast the power output of a wind farm using th
 
 The goal is to forecast the power output of the whole wind farm at each of the 10 minutes time steps using the weather data such as wind speed and temperature and turbine data such as how many turbines are operating. Thus, my goal differs from the original goal of the KDD Cup 2022 where they forecasted the next two days on each individual turbine utilizing the turbine location data in addition but ignoring future weather data. I chose a different approach because in a realistic scenario, we have quite accurate weather forecast data for the next 2 days and it would not make sense to ignore it.
 
-On the wind farm level, I found only limited autocorrelation of the power output after a lag of 6 hours which made me also test models that ignore the time series nature of the problem and only use the weather data and the number of active turbines. The use of the number of active turbines makes it possible to forecast the potential power output of the wind farm, given some weather forecast. If a wind turbine will not be operational in a productive scenario due to external factors such as grid stability actions or maintanace, one can account for that by adjusting the number of active turbines accordingly.
+On the wind farm level, I found only limited autocorrelation of the power output after a lag of 6 hours which made me also test models that ignore the time series nature of the problem and only use the weather data.
 
-I will implement and compare several approaches to model this timeseries forecasting problem (e.g., Lin Reg, XGBoost/LightGBM, window)
+I will implement and compare several approaches to model this timeseries forecasting problem (e.g., Lin Reg, XGBoost/LightGBM, windowed approach, etc.)
 
 ## Current Status of the project: WIP
 I started working on the project on the 30th of December 2024 and it is still WIP:
@@ -48,8 +48,7 @@ Columns
 
 ## Limitations
 The following limitations need to be considered when interpreting the results, especially when making conclusions about the performance in a real-world scenario:
-- I use actual weather data for forecasting instead of forecasted weather data. In a real-world scenario, we would only have access to forecasted weather data.
-- I use the number of active turbines as a feature to be able to forecast the potential power output of the wind farm as well as to account for estimations about the number of operational turbines. In a real-world scenario, we would not always know for sure how many turbines will actually be operational (e.g., maintenance, grid stability actions, etc.)
+- I use actual weather data for forecasting instead of forecasted weather data. In a real-world scenario, we would only have access to forecasted weather data which introduces an error source.
 
 ## How to setup and run the project
 
